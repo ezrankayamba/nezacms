@@ -63,4 +63,6 @@ abstract class NezaModel implements IModel {
 	 */
 	function delete() {
 	}
+	
+	
 }

@@ -3,5 +3,5 @@ interface IView {
 	/**
 	 * @param array $data
 	 */
-	function render($data=array());
+	function render(NezaApplication $app, $data=array());
 }

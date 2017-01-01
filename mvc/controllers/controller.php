@@ -27,7 +27,7 @@ abstract class NezaController implements IController {
 	 *
 	 * @see IController::action()
 	 */
-	public function action($name) {
+	public function action(NezaApplication $app, $name) {
 		$result = null;
 		switch ($name) {
 			case 'save' :

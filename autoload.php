@@ -1,4 +1,8 @@
 <?php
+/** Constants */
+define('APP_NAME', 'nezacms');
+
+
 /** Auto load Classes **/
 
 /**

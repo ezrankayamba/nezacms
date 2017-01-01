@@ -5,5 +5,5 @@
  */
 interface IController {
 	public function index();
-	public function action($name);
+	public function action(NezaApplication $app, $name);
 }

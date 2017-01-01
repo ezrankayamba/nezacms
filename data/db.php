@@ -2,8 +2,18 @@
 require_once 'data/config.php';
 class NezaDatabase {
 	protected $debug = 'none';
+	private static $conn = null;
+	public static function msqli() {
+		if (! NezaDatabase::$conn) {
+			NezaDatabase::$conn = new mysqli ( DB_HOST, DB_USER, DB_PASS, DB_NAME );
+		}
+		return NezaDatabase::$conn;
+	}
 	protected function connect() {
-		return new mysqli ( DB_HOST, DB_USER, DB_PASS, DB_NAME );
+		return NezaDatabase::msqli ();
+	}
+	public function lastId() {
+		return $this->connect ()->lastInsertId ();
 	}
 	public function query($query) {
 		$db = $this->connect ();
@@ -21,14 +31,14 @@ class NezaDatabase {
 	function log($text) {
 		if ($this->debug == 'none') {
 		} else {
-			echo 'DB Log:: >> ' . $text.'<br/>';
+			echo 'DB Log:: >> ' . $text . '<br/>';
 		}
 	}
 	public function insert($table, $data, $format) {
 		// Check for $table or $data not set
 		if (empty ( $table ) || empty ( $data )) {
-			$this->log('Empty data or no table. '.$table);
-			print_r($data);
+			$this->log ( 'Empty data or no table. ' . $table );
+			print_r ( $data );
 			return false;
 		}
 		// Connect to the database
@@ -44,15 +54,17 @@ class NezaDatabase {
 		
 		list ( $fields, $placeholders, $values ) = $this->prep_query ( $data );
 		
-		print_r($values);echo '<br/>';
+		print_r ( $values );
+		echo '<br/>';
 		// Prepend $format onto $values
 		array_unshift ( $values, $format );
-		print_r($values);echo '<br/>';
+		print_r ( $values );
+		echo '<br/>';
 		
 		// Prepary our query for binding
-		$sql = "INSERT INTO {$table} ({$fields}) VALUES ({$placeholders})" ;
-		echo 'SQL: '.$sql."<br/>";
-		$stmt = $db->prepare ($sql );
+		$sql = "INSERT INTO {$table} ({$fields}) VALUES ({$placeholders})";
+		echo 'SQL: ' . $sql . "<br/>";
+		$stmt = $db->prepare ( $sql );
 		// Dynamically bind values
 		call_user_func_array ( array (
 				$stmt,
@@ -62,7 +74,7 @@ class NezaDatabase {
 		// Execute the query
 		$res = $stmt->execute ();
 		
-		$this->log("Result: ".$res);
+		$this->log ( "Result: " . $res );
 		
 		// Check for successful insertion
 		if ($stmt->affected_rows) {
@@ -213,7 +225,8 @@ class NezaDatabase {
 		foreach ( $array as $key => $value ) {
 			$refs [$key] = &$array [$key];
 		}
-		print_r($refs);echo '<br/>';
+		print_r ( $refs );
+		echo '<br/>';
 		return $refs;
 	}
 	function run_sql_file($location) {

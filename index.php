@@ -1,3 +1,4 @@
 <?php
 require_once 'autoload.php';
-NezaApplication::init();
+$app = NezaApplication::getInstance();
+$app->init();

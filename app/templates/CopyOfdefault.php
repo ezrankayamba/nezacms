@@ -4,15 +4,15 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Neza Technologies</title>
-<link rel="shortcut icon" href="<?php echo $app->link('img/favicon.ico'); ?>" />
-<link rel="stylesheet" href="<?php echo $app->link('css/font-awesome.min.css'); ?>" />
-<link rel="stylesheet" type="text/css" href="<?php echo $app->link('css/style.css'); ?>" />
+<link rel="shortcut icon" href="app/assets/img/favicon.ico" />
+<link rel="stylesheet" href="app/assets/css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="app/assets/css/style.css" />
 <script type="text/javascript" src=""></script>
 </head>
 <body>
 	<header id="topheader">
 		<a id="title" href="#home"> <img alt="Neza Tech"
-			src="<?php echo $app->link('img/nezatech.png'); ?>" />
+			src="app/assets/img/nezatech.png" />
 		</a>
 		<div id="userwrapper">
 			<div id="userheader">
@@ -59,42 +59,44 @@
 			<a href="#" id="menu-icon"></a>
 			<ul class="mainmenu">
 				<li class="current"><a href="#">Dashboard</a></li>
-				<li><a href="#services">Our Services</a>
-					<ul class="submenu">
+				<li class="dropdown"><a href="#">Our Services </a>
+					<!-- ul class="submenu">
 						<li><a href="#">ICT Consultation</a></li>
 						<li><a href="#">Software Development</a></li>
 						<li><a href="#">Systems Integration</a></li>
 						<li><a href="#">Payment Services Integration</a></li>
 						<li><a href="#"> Programming Lessons </a></li>
 						<li><a href="#">CMS Extensions</a></li>
-					</ul></li>
-				<li><a href="#aboutus">About Us</a></li>
-				<li><a href="#cms">Neza CMS</a></li>
+					</ul--></li>
+				<li><a href="#">About Us</a>
+					<!-- ul class="submenu">
+						<li><a href="#">About Us</a></li>
+						<li><a href="#">Our Potifolio</a></li>
+						<li><a href="#">Contact Us</a></li>
+					</ul--></li>
+				<li class=""><a href="#">Neza CMS</a></li>
 			</ul>
 		</nav>
-	</header>	
-	<section id="content-wrapper" class="clearfix">
+	</header>
+	<section id="content-wrapper">		
 		<aside>
-			<form method="post" action="<?php echo $app->formAction('default/index');?>" id="login">
+			<form action="users/login" id="login">
 				<h3>Login</h3>
 				<fieldset>
-					<legend></legend>
-					<label for="username">Username</label> <input name="username" id="username" autofocus /> <label
-						for="password">Password</label> <input name="password" id="password"
-						type="password" />
+					<legend>Provide credentials</legend>
+					<label for="username">Username</label> <input name="username" /> <label
+						for="password">Password</label> <input name="password" type="password"/>
 					<button type="submit" name="cmd" value="login">Submit</button>
 				</fieldset>
 			</form>
 		</aside>
 		<article>
-			<p>
-				<?php
-			print_r ( $app->inputs );
+			<?php 
+				print_r($data);
 			?>
-			</p>
 		</article>
 	</section>
-	<div id="footer" class="clearfix">
+	<div id="footer">
 		<footer>
 			<ul class="social">
 				<li><a href="https://www.facebook.com/w3newbie" target="_blank"><i
