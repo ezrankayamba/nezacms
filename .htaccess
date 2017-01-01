@@ -1,0 +1,35 @@
+# Turn Rewrite Engine On
+RewriteEngine On
+
+# NC makes the rule non case sensitive
+# L makes this the last rule that this specific condition will match
+
+# <root>/ (this is not working...)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule index.php [L,QSA]
+
+# <root>/controller
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([A-Za-z_-]+)[/]?$ index.php?ctr=$1 [L,QSA]
+
+# <root>/controller/fn
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([A-Za-z_-]+)/([A-Za-z_-]+)[/]?$ index.php?ctr=$1&fn=$2 [L,QSA]
+
+# <root>/controller/fn/p1
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^([A-Za-z_-]+)/([A-Za-z_-]+)/([0-9A-Za-z_-]+)[/]?$ index.php?ctr=$1&fn=$2&params=$3 [L,QSA]
+
+# <root>/controller/fn/p1/p2
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^([A-Za-z_-]+)/([A-Za-z_-]+)/([0-9A-Za-z_-]+)/([0-9A-Za-z_-]+)[/]?$ index.php?ctr=$1&fn=$2&done=$3&text=$4 [L,QSA]
+
+# <root>/controller/fn/p1/p2/p3
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^([A-Za-z_-]+)/([A-Za-z_-]+)/([0-9A-Za-z_-]+)/([0-9A-Za-z_-]+)/([0-9A-Za-z_-]+)[/]?$ index.php?ctr=$1&fn=$2&p1=$3&p2=$4&p3=$5 [L,QSA]

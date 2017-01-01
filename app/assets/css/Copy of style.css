@@ -1,0 +1,350 @@
+* {
+	clear: both;
+	font-family: Tahoma, Verdana, Segoe, sans-serif;
+	font-size: 100%;
+	font-style: normal;
+	font-variant: normal;
+	line-height: 26.4px;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+html {
+	height: 100%;
+	width: 100%;
+}
+body {
+	height: 100%;
+	width: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+/**
+Colors
+1. Top Header: #3B4044
+2. User info link colors: #8D793A
+3. Nav bar: #8D793A
+3. Dash board menu links: #A79F94
+
+*/
+
+/** Header Start **/
+#topheader {
+	background: #3B4044;
+	width: 70%;
+	padding: 8px 15%;
+	height: 48px;
+}
+
+#title {
+	width: 300px;
+	padding: 0 10px;
+	font-size: 150%;
+	margin: 0;
+	color: #D0D8DA;
+	baseline: top;
+}
+
+#title img {
+	width: 48px;
+	height: 48px;
+	padding: 0;
+	margin: 0;
+	background: #6666FF;
+	border-radius: 8px;
+}
+
+#userwrapper {
+	display: inline-block;
+	font-size: 80%;
+	float: right;
+	margin: auto 0;
+	padding: 0 10px;
+}
+
+#userheader {
+	color: #FAAB67;
+	position: relative;
+	top: 50%;
+	transform: translateY(50%);
+}
+
+#usericon {
+	color: #FFFFFF;
+}
+
+#userheader>a {
+	color: #FAAB67;
+	font-weight: bold;
+}
+
+h5.lastlogin {
+	margin: 0;
+	padding: 4px 0 0 14px;
+	color: #7A7F83;
+}
+
+/** Navigation bar **/
+#navbar {
+	background: #5B6366;
+	padding: 0;
+	margin: 0;
+	width: 70%;
+	padding: 0 15%;
+	height: 45px;
+}
+
+#navbar nav {
+	display: inline-block;
+	padding: 0px 10px;
+}
+
+#menu-icon {
+	display: hidden;
+	width: 48px;
+	height: 48px;
+	background: url(../img/nav.png) center;
+	margin: 0 0;
+}
+#navbar ul,
+#navbar li{
+	margin: 0;
+	padding: 0;
+}
+
+#navbar li {
+	display: inline-block;
+	margin: 0;
+	font-weight: bold;
+}
+
+ul:after {
+	clear: both;
+}
+
+#navbar nav ul {
+	list-style: none;
+	position: relative;
+	float: left;
+}
+
+
+ul  li:hover {
+	background: #6D7276;
+}
+
+ul li a {
+	padding: 9px 5px;
+	display: inline-block;
+	color: #A1DCF4;
+	text-transform: uppercase;
+	font-size: 70%;
+}
+
+#navbar nav ul  li ul {
+	display: none;
+	position: absolute;
+	background: #6D7276;
+	min-width: 80px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.submenu-arrow {
+	color: #D0D1D3;
+	padding-left: 4px;
+	font-size: 130%;
+}
+
+#navbar nav ul  li:hover>ul {
+	display: block;
+	margin: 0;
+	padding: 0;
+	margin-left: -5px;
+	margin-top: 8px;
+}
+
+#navbar nav ul  li:hover>ul li {
+	display: block;
+	border-bottom: 1px solid grey;
+	line-height: 20px;
+}
+
+#navbar nav ul  li:hover>ul li:first-child {
+	border-top: 1px solid grey;
+}
+
+#navbar nav ul  li:hover>ul li:hover {
+	background: #FAAB67;
+}
+
+#navbar nav ul  li:hover>ul li a {
+	
+}
+
+#nav-search {
+	float: right;
+	padding: 6px 0;
+}
+
+#searchbox {
+	background-color: #ffffff;
+	margin: 0 10px;
+	border: 1px solid #ffffff;
+	border-radius: 9px;
+	position: relative;
+	transform: translateY(10%);
+}
+
+#searchbox .searchicon {
+	margin: 0 0 0 4px;
+	color: #A1DCF4;
+}
+
+#nav-search input[name=search] {
+	background: transparent;
+	border: 0;
+	outline: none;
+	padding: 0 0 1px 0;
+}
+/** Start the footer */
+#footer {
+	background: #ffab62;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+footer {
+	background-color: #6991AC;
+	width: 70%;
+	padding: 0 15%;
+	margin: 0;
+	padding: 0 15%;
+}
+
+footer ul, footer p {
+	margin: 0;
+	padding: 0;
+}
+
+.social {
+	list-style-type: none;
+	text-align: center;
+}
+
+.social li {
+	display: inline;
+}
+
+.social i {
+	font-size: 240%;
+	margin: 1%;
+	padding: 2% 4%;
+	color: #A1DCF4;
+}
+
+.social i:hover {
+	color: #F5F5F5;
+}
+
+footer.second {
+	border-top: 2px solid #AADCD2;
+	background-color: #3B4044;
+	max-height: 55px;
+	text-align: center;
+	margin: 0;
+}
+
+footer.second p {
+	padding: 5px 0 5px 0;
+	text-align: center;
+	color: #FAAB67;
+}
+
+/** MEDIA Desktop */
+@media screen and (max-width: 980px) {
+	#topheader {
+		width: 84%;
+		padding: 8px 8%;
+	}
+	#navbar {
+		width: 84%;
+		padding: 0 8%;
+	}
+	footer {
+		width: 84%;
+		padding: 0 8%;
+	}
+}
+
+/** MEDIA QUERIES */
+@media screen and (max-width: 768px) {
+	/** layout **/
+	#topheader {
+		width: 100%;
+		padding: 8px 0;
+	}
+	#navbar {
+		width: 100%;
+		padding: 0;
+	}
+	footer {
+		width: 100%;
+		padding: 0;
+	}
+
+	/** Other styles */
+	#title {
+		font-size: 120%;
+	}
+	#title {
+		padding: 5px;
+	}
+	#menu-icon {
+		display: inline-block;
+	}
+	#navbar nav ul  li {
+		display: block;
+		position: relative;
+		border-bottom: 1px solid grey;
+	}
+	#navbar nav ul  li:first-child {
+		border-top: 1px solid grey;
+	}
+	nav ul, nav:active ul {
+		display: none;
+		z-index: 1000;
+		position: absolute;
+		padding: 20px;
+		background: #5B6366;
+		left: 0px;
+		top: 110px;
+	}
+	nav:hover ul {
+		display: block;
+	}
+	nav li {
+		text-align: left;
+		padding: 10px 0;
+	}
+	#navbar nav {
+		padding: 0 5px;
+	}
+	#navbar nav>ul>li:hover>ul {
+		left: 100%;
+		top: 0;
+		border-left: 2px solid #FFFFFF;
+		margin: 0;
+	}
+	.social i {
+		font-size: 180%;
+		margin: 1%;
+		padding: 2% 4%;
+	}
+}
